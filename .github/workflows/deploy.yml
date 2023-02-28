@@ -22,6 +22,6 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: blog 
+          project: cmac2712-blog 
           entrypoint: server/entry.mjs
           root: dist
