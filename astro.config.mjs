@@ -6,9 +6,12 @@ import sitemap from '@astrojs/sitemap';
 import deno from "@astrojs/deno";
 
 // https://astro.build/config
+import svelte from "@astrojs/svelte";
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), svelte()],
   output: "server",
   adapter: deno()
 });
