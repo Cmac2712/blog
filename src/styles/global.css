@@ -3,6 +3,10 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
 	font-family: Verdana, sans-serif;
 	margin: auto;
@@ -15,6 +19,13 @@ body {
 	line-height: 1.5;
 	color: #444;
 }
+
+	@media (prefers-color-scheme: dark) {
+		body {
+			color: #fff;
+		}
+	}
+
 h1,
 h2,
 h3,
@@ -25,6 +36,21 @@ strong,
 b {
 	color: #222;
 }
+
+
+	@media (prefers-color-scheme: dark) {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		strong,
+		b {
+			color: theme(colors.gray.300);
+		}
+	}
+
 a {
 	color: #3273dc;
 }

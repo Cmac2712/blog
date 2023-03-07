@@ -10,10 +10,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body class="bg-white dark:bg-nord0 dark:text-white">
 		<Header title={SITE_TITLE} />
 		<main>
-			<h1>Hello, I am Craig</h1>
+			<h1 class="mb-10 text-nord12 font-bold text-3xl">Blog Posts</h1>
+
+			{
+				[1, 2, 3, 4].map(() => ( 
+					<article class="mb-10">
+						<h2 class="text-nord12 font-bold text-xl mb-2">How To Be a Performance Evangelist</h2>
+						<p class="text-nord4 text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic suscipit ullam enim quod fugit tempora, modi eligendi repellat! Dolor, sint&hellip;</p>
+					</article>
+				 ))
+			}
+
+
+			
 		</main>
 		<Footer />
 	</body>
