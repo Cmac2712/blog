@@ -3,6 +3,13 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../src/components/FormattedDate.svelte';
+import { listen } from 'svelte/internal';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
 <!DOCTYPE html>
@@ -15,17 +22,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<main>
 			<h1 class="mb-10 text-nord12 font-bold text-3xl">Blog Posts</h1>
 
+			<ul>
 			{
-				[1, 2, 3, 4].map(() => ( 
-					<article class="mb-10">
-						<h2 class="text-nord12 font-bold text-xl mb-2">How To Be a Performance Evangelist</h2>
-						<p class="text-nord4 text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic suscipit ullam enim quod fugit tempora, modi eligendi repellat! Dolor, sint&hellip;</p>
-					</article>
-				 ))
+				posts.map((post) => (
+					<li class="mb-8">
+						<article>
+							<a href={`/blog/${post.slug}/`}>
+								<h2 class="text-nord12 font-bold text-xl mb-2">{post.data.title}</h2>
+								<FormattedDate date={post.data.pubDate} />
+								<p class="text-nord4">{post.data.description}</p>
+							</a>
+						</article>
+					</li>
+				))
 			}
+			</ul>
 
-
-			
 		</main>
 		<Footer />
 	</body>
