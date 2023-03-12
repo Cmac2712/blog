@@ -9,11 +9,11 @@ const blog = defineCollection({
 		pubDate: z
 			.string()
 			.or(z.date())
-			.transform((val) => new Date(val)),
+			.transform((val:Date) => new Date(val)),
 		updatedDate: z
 			.string()
 			.optional()
-			.transform((str) => (str ? new Date(str) : undefined)),
+			.transform((str: string) => (str ? new Date(str) : undefined)),
 		heroImage: z.string().optional(),
 	}),
 });

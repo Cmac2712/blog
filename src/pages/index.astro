@@ -4,8 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../src/components/FormattedDate.svelte';
-import { listen } from 'svelte/internal';
+import FormattedDate from '../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -16,28 +15,39 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="bg-white dark:bg-nord0 dark:text-white">
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1 class="mb-10 text-nord12 font-bold text-3xl">Blog Posts</h1>
-
-			<ul>
-			{
-				posts.map((post) => (
-					<li class="mb-8">
-						<article>
-							<a href={`/blog/${post.slug}/`}>
-								<h2 class="text-nord12 font-bold text-xl mb-2">{post.data.title}</h2>
-								<FormattedDate date={post.data.pubDate} />
-								<p class="text-nord4">{post.data.description}</p>
-							</a>
-						</article>
-					</li>
-				))
+		<style>
+			ul {
+				list-style-type: none;
+				padding: unset;
 			}
-			</ul>
-
+			ul li {
+				display: flex;
+			}
+			ul li :global(time) {
+				flex: 0 0 130px;
+				font-style: italic;
+				color: #595959;
+			}
+			ul li a:visited {
+				color: #8e32dc;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<FormattedDate date={post.data.pubDate} />
+								<a href={`/${post.slug}/`}>{post.data.title}</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
 		</main>
 		<Footer />
 	</body>

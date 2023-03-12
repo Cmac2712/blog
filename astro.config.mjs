@@ -15,6 +15,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://example.com',
   integrations: [mdx(), sitemap(), svelte(), tailwind()],
-  output: "server",
+  //output: "server",
   adapter: deno()
 });
