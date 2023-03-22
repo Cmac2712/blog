@@ -15,6 +15,6 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: 'https://example.com',
   integrations: [mdx(), sitemap(), svelte(), tailwind()],
-  output: "server",
-  adapter: vercel()
+  // output: "server",
+  // adapter: vercel()
 });
