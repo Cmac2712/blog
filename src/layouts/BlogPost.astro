@@ -10,30 +10,18 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme="coffee">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
-	<body class="bg-white dark:bg-nord0 dark:text-white">
+	<body>
+		<div class="max-w-lg mx-auto px-3">
 		<Header />
 		<main>
-			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-				<h1 class="title">{title}</h1>
+			<article class="prose text-neutral-content">
+				{heroImage ? <img width={720} height={360} src={heroImage} alt="" /> : null}
+				<h1 class="text-neutral-content">{title}</h1>
 				<FormattedDate date={pubDate} />
 				{
 					updatedDate && (
@@ -42,10 +30,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						</div>
 					)
 				}
-				<hr />
 				<slot />
 			</article>
 		</main>
 		<Footer />
+		</div>
 	</body>
 </html>

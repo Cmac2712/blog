@@ -12,31 +12,29 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="coffee">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="bg-white dark:bg-nord0 dark:text-white">
+	<body>
+		<div class="max-w-lg mx-auto px-3">
 		<Header title={SITE_TITLE} />
-		<main>
-			<h1 class="mb-10 text-nord12 font-bold text-3xl">Articles</h1>
+		<main class="prose">
+			<h2 class="text-primary">Articles</h2>
 			<section>
-				<ul>
 					{
 						posts.map((post) => (
-							<li class="mb-8">
-								<article>
-									<a href={`/${post.slug}/`}>
-										<h2 class="text-nord12 font-bold text-xl mb-2">{post.data.title}</h2>
-										<p class="text-nord4">{post.data.description}</p>
+								<article class="mb-4">
+									<a href={`/${post.slug}/`} class="no-underline">
+										<h3 class="m-0 text-primary">{post.data.title}</h3>
+										<p class="m-0 text-neutral-content">{post.data.description}</p>
 									</a>
 								</article>
-							</li>
 						))
 					}
-				</ul>
 			</section>
 		</main>
 		<Footer />
+		</div>
 	</body>
 </html>

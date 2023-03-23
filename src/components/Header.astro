@@ -1,38 +1,27 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
-// import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon';
 ---
 
-<header>
-	<h2 class="text-nord12 text-3xl font-bold">
-		<HeaderLink href="/">
+<header class="py-4 my-4">
+	<h1 class="text-4xl">
+		<HeaderLink href="/" class="font-bold no-underline mb-4 text-primary">
 			{SITE_TITLE}
 		</HeaderLink>
-	</h2>
-	<nav>
-		<HeaderLink href="https://twitter.com/cmac2712" target="_blank">
-			<!-- <Icon class="icon" name="twitter" />	 -->
+	</h1>
+	<nav class="flex mt-4">
+		<HeaderLink href="https://twitter.com/cmac2712" target="_blank" class="mr-2">
+			<Icon class="icon text-neutral-content" pack="mdi" name="twitter" />	
 		</HeaderLink>
 		<HeaderLink href="https://github.com/cmac2712" target="_blank">
-			<!-- <Icon class="icon" name="github" />	 -->
+			<Icon class="icon text-neutral-content" pack="mdi" name="github" />	
 		</HeaderLink>
 	</nav>
 </header>
+
 <style>
-	nav a {
-		margin-right: .5rem;
-	}
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-	.icon {
-		width: 25px;
-		height: 25px;
-		color: #eee;
-		fill: #eee;
+	[astro-icon] {
+		width: 24px;
 	}
 </style>
