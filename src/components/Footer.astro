@@ -1,8 +1,11 @@
 ---
 const today = new Date();
+import Social from "./Social.astro";
 ---
 
-<footer class="mt-20 py-2 text-neutral-content text-center">
-	&copy; {today.getFullYear()} Craig MacIntyre.
+<footer class="flex items-center mt-10 py-2 pb-4 text-neutral-content text-center">
+	<span class="mr-2">&copy; {today.getFullYear()} Craig MacIntyre.</span>
+
+	<Social />	
 </footer>
 

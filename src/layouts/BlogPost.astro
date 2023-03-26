@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import PageRoot from './PageRoot.astro';
 import Footer from '../components/Footer.astro';
+import Bio from '../components/Bio.svelte';
 import FormattedDate from '../components/FormattedDate.astro';
 import { Icon } from 'astro-icon'
 
@@ -16,7 +17,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 	</head>
 	<body>
-		<main class="max-w-lg mx-auto py-4 my-4 px-3">
+		<div class="max-w-lg mx-auto">
+		<main class="py-4 my-4 px-3">
 			<article class="prose text-neutral-content">
 				<h1 class="text-4xl text-neutral-content">{title}</h1>
 				<a href="/" class="flex text-neutral-content">
@@ -34,8 +36,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				}
 				<slot />
 			</article>
+			<Bio className={`mt-12`} />
 		</main>
-		<Footer />
+		<div class="px-4">
+			<Footer />
+		</div>
+		</div>
 	</body>
 </PageRoot>
 

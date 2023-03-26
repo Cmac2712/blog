@@ -3,7 +3,8 @@ import { Debug } from 'astro/components'
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import Bio from '../components/Bio.svelte';
+import Social from '../components/Social.astro';
 import PageRoot from '../layouts/PageRoot.astro'
 import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -20,7 +21,10 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<div class="max-w-lg mx-auto px-3">
 		<Header title={SITE_TITLE} />
-		<main class="prose">
+
+		<Bio className={'mb-8'} />
+
+			<main class="prose">
 			<h2 class="text-primary">Articles</h2>
 			<section>
 					{
