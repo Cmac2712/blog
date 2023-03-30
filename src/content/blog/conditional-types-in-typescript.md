@@ -42,6 +42,5 @@ This works for all scenarios:
 ```typescript
 function double<T extends string | number>(x: any): T extends string ? string : number {
   return x + x
-j
-
+}
 ```
