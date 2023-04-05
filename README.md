@@ -1,4 +1,4 @@
-# Blog
+# Blog 📖
 
 This is my blog.
 
@@ -6,7 +6,7 @@ Built with Astro Starter Kit: https://docs.astro.build/en/getting-started/
 
 ## Deployment
 
-Push commits to the main branch.
+Push commits to the main branch. Will be deployed to Vercel 🚀
 
 ## Adding Blog Posts
 
