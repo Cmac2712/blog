@@ -6,6 +6,6 @@
 </script>
 
 <div class={`flex items-center ${className}`}>
-    <img class={`rounded-full w-16 mr-2`} src={pic} alt={"Profile picture of Craig MacIntyre"}>
+    <img class={`rounded-full w-16 mr-2`} src={pic} alt={"Profile picture of Craig MacIntyre"} width={'64'} height={'64'}>
     <p class="text-sm text-neutral-content">{@html content}</p>
 </div>
