@@ -1,13 +1,15 @@
 ---
 import { Icon } from 'astro-icon';
-export let className = '';
 ---
 
-<nav class={`flex ${className}`}>
-    <a href="https://twitter.com/cmac2712" aria-label="Go to Craig MacIntyre's Twitter" target="_blank" class="mr-2">
+<nav class={`flex gap-2`}>
+    <a href="https://twitter.com/cmac2712" aria-label="Go to Craig MacIntyre's Twitter" target="_blank">
         <Icon class="icon text-neutral-content w-6" pack="mdi" name="twitter" />	
     </a>
     <a href="https://github.com/cmac2712" aria-label="Go to Craig MacIntyre's GitHub Profile" target="_blank">
         <Icon class="icon text-neutral-content w-6" pack="mdi" name="github" />	
+    </a>
+    <a href="www.linkedin.com/in/craig-macintyre-web" aria-label="Go to Craig MacIntyre's LinkedIn Profile" target="_blank">
+        <Icon class="icon text-neutral-content w-6" pack="mdi" name="linkedin" />	
     </a>
 </nav>

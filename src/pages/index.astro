@@ -4,16 +4,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Bio from '../components/Bio.svelte';
-import Social from '../components/Social.astro';
 import PageRoot from '../layouts/PageRoot.astro'
-import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
-const posts = (await getCollection('blog'))
-
-posts.sort(
-	(a, b) => new Date(b?.data?.pubDate).getDate() - new Date(a?.data?.pubDate).getDate()
-);
 
 ---
 
@@ -25,22 +17,10 @@ posts.sort(
 		<div class="max-w-lg mx-auto px-3">
 		<Header title={SITE_TITLE} />
 
-		<Bio className={'mb-8'} />
-
 			<main class="prose">
-			<h2 class="text-primary">Articles</h2>
+				<Bio className={'mb-8'} />
 			<section>
-					{
-						posts.map((post) => (
-								<article class="mb-8">
-									<a href={`/${post.slug}/`} class="no-underline">
-											<h3 class="m-0 text-primary mr-2">{post.data.title}</h3>
-											<p class="m-0 text-sm text-neutral-400">{post.data.pubDate}</p>
-										<p class="m-0 mt-1 text-neutral-content">{post.data.description}</p>
-									</a>
-								</article>
-						))
-					}
+
 			</section>
 		</main>
 		<Footer />
