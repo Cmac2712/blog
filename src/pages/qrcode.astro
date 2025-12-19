@@ -1,10 +1,9 @@
 ---
-import { Debug } from 'astro/components'
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Bio from '../components/Bio.svelte';
 import PageRoot from '../layouts/PageRoot.astro'
+import QRCode from '../components/QRCode.svelte'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 ---
@@ -14,9 +13,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<div class="max-w-lg mx-auto px-3">
+		<div class="max-w-lg mx-auto p-3">
 
-      <p>qr code</p>
+      <QRCode client:load/>
 
 			</section>
 		</main>
