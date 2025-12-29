@@ -1,5 +1,6 @@
 <script>
   let qrcode = "";
+  let inputText = "";
   async function getQRCode(text) {
     const url =
       "https://itifbbwac6uwi3o42n4pkt3ula0lmpdk.lambda-url.eu-west-1.on.aws/";
@@ -32,6 +33,7 @@
   >
   <br />
   <input
+    bind:value={inputText}
     class="input input-bordered w-full mb-2"
     name="input_text"
     id="input_text"
@@ -40,7 +42,7 @@
     class="bg-blue-500 text-white px-4 py-2 rounded"
     on:click={(e) => {
       e.preventDefault();
-      getQRCode();
+      getQRCode(inputText);
     }}>Get QRCode</button
   >
 </form>
